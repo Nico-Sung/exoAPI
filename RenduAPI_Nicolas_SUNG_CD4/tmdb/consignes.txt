@@ -1,0 +1,49 @@
+Étape 1 : 
+
+Dans scripts.js et details.js : 
+
+- Init le fichier JS (event DomContentLoaded)
+- Créer une constante apiKey et mettre votre clé API
+
+
+Dans scripts.js : 
+
+- Créer une variable let currentPage qui par défaut doit etre égal a 1
+- Créer une fonction fetchFilms qui prend en paramètre la page courrante
+
+Voici l'url de fetch : https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=fr-FR&page=${page}
+
+- Executer le fetch, récupérer la data (data.results) et appeler displayFilms
+
+
+- Créer une fonction displayFilms qui prend en paramètre un array de film (quon vient de fetch)
+
+- Récupérer le container par son id (film-container)
+- Récupérer le template par son id (film-template)
+- Executer le code suivant : 
+
+- container.innerHTML = "" (pour supprimer le contenu d'avant)
+- container.appendChild(template) (pour mettre a jour le template de base)
+
+- Faire une boucle sur les films qu'on a reçu et afficher les détails du film
+    const filmCard = template.cloneNode(true) (cloner template)
+- Pensez a la balise a (.film-details-link) où l'href devra etre details.html?id=(ID DU FILM) pour afficher les détails d'un film
+
+Étape 2 : 
+
+- On créer une constante apiKey avec la clé api
+- On récupérer les query params (regarder sur internet URLSearchParams JS)
+- Mettre dans une constante l'id du film récupérer dans l'url
+
+- On créer une fonction fetchFilm qui prend en paramètre l'id du film
+
+- On fetch, voici l'url : `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=fr-FR`
+
+- Une fois la data récupérer on display le film avec la fonction displayFilm
+
+- On créer donc la fonction displayFilm qui prend en paramètre les data du film
+
+On affiche les détails du film en question
+
+
+On oublie pas d'appeler fetchFilm directement a l'initialisation du fichier JS
